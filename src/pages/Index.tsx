@@ -305,6 +305,24 @@ const Index = () => {
                       </div>
                     </CardContent>
                   </Card>
+                ) : activeSection === 'news' ? (
+                  <Card className="border-border/50 bg-card/50 backdrop-blur">
+                    <CardHeader>
+                      <CardTitle className="text-2xl flex items-center gap-2">
+                        <Icon name="Newspaper" size={28} className="text-secondary" />
+                        Новости VUSS RUSSIA
+                      </CardTitle>
+                      <p className="text-muted-foreground">
+                        Последние обновления и события из мира игры
+                      </p>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="text-center py-12 text-muted-foreground">
+                        <Icon name="FileText" size={48} className="mx-auto mb-4 opacity-50" />
+                        <p>Раздел новостей находится в разработке</p>
+                      </div>
+                    </CardContent>
+                  </Card>
                 ) : (
                   <>
                     <div className="flex items-center justify-between">
