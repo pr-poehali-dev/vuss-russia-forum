@@ -123,14 +123,9 @@ const Index = () => {
 
   const navItems = [
     { id: 'home', label: 'Главная', icon: 'Home' },
-    { id: 'guides', label: 'Гайды', icon: 'BookOpen' },
-    { id: 'discussions', label: 'Обсуждения', icon: 'MessageSquare' },
-    { id: 'events', label: 'События', icon: 'Calendar' },
     { id: 'news', label: 'Новости', icon: 'Newspaper' },
-    { id: 'ratings', label: 'Рейтинги', icon: 'Trophy' },
     { id: 'admin-apply', label: 'Заявка на админа', icon: 'Shield' },
-    { id: 'profile', label: 'Профиль', icon: 'User' },
-    { id: 'contacts', label: 'Контакты', icon: 'Mail' }
+    { id: 'profile', label: 'Профиль', icon: 'User' }
   ];
 
   return (
