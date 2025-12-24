@@ -124,8 +124,7 @@ const Index = () => {
   const navItems = [
     { id: 'home', label: 'Главная', icon: 'Home' },
     { id: 'news', label: 'Новости', icon: 'Newspaper' },
-    { id: 'admin-apply', label: 'Заявка на админа', icon: 'Shield' },
-    { id: 'profile', label: 'Профиль', icon: 'User' }
+    { id: 'admin-apply', label: 'Заявка на админа', icon: 'Shield' }
   ];
 
   return (
