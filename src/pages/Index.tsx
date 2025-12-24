@@ -128,6 +128,7 @@ const Index = () => {
     { id: 'events', label: 'События', icon: 'Calendar' },
     { id: 'news', label: 'Новости', icon: 'Newspaper' },
     { id: 'ratings', label: 'Рейтинги', icon: 'Trophy' },
+    { id: 'admin-apply', label: 'Заявка на админа', icon: 'Shield' },
     { id: 'profile', label: 'Профиль', icon: 'User' },
     { id: 'contacts', label: 'Контакты', icon: 'Mail' }
   ];
@@ -242,15 +243,85 @@ const Index = () => {
 
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
               <div className="lg:col-span-2 space-y-4">
-                <div className="flex items-center justify-between">
-                  <h2 className="text-2xl font-bold">Горячие темы</h2>
-                  <Button variant="outline" size="sm">
-                    <Icon name="Plus" size={18} className="mr-2" />
-                    Создать тему
-                  </Button>
-                </div>
+                {activeSection === 'admin-apply' ? (
+                  <Card className="border-primary/30 bg-card/50 backdrop-blur">
+                    <CardHeader>
+                      <CardTitle className="text-2xl flex items-center gap-2">
+                        <Icon name="Shield" size={28} className="text-primary" />
+                        Заявка на администратора
+                      </CardTitle>
+                      <p className="text-muted-foreground">
+                        Заполните форму ниже, чтобы подать заявку на должность администратора сервера
+                      </p>
+                    </CardHeader>
+                    <CardContent className="space-y-4">
+                      <div className="space-y-2">
+                        <label className="text-sm font-medium">Ваш никнейм в игре</label>
+                        <Input placeholder="Например: ShadowReaper" />
+                      </div>
+                      <div className="space-y-2">
+                        <label className="text-sm font-medium">Возраст</label>
+                        <Input type="number" placeholder="18" />
+                      </div>
+                      <div className="space-y-2">
+                        <label className="text-sm font-medium">Discord</label>
+                        <Input placeholder="username#0000" />
+                      </div>
+                      <div className="space-y-2">
+                        <label className="text-sm font-medium">Опыт администрирования</label>
+                        <textarea 
+                          className="w-full min-h-[120px] px-3 py-2 rounded-md border border-input bg-background text-sm"
+                          placeholder="Расскажите о вашем опыте администрирования на других серверах..."
+                        />
+                      </div>
+                      <div className="space-y-2">
+                        <label className="text-sm font-medium">Почему вы хотите стать администратором?</label>
+                        <textarea 
+                          className="w-full min-h-[120px] px-3 py-2 rounded-md border border-input bg-background text-sm"
+                          placeholder="Опишите вашу мотивацию..."
+                        />
+                      </div>
+                      <div className="space-y-2">
+                        <label className="text-sm font-medium">Сколько времени в день вы готовы уделять?</label>
+                        <Input placeholder="Например: 3-5 часов" />
+                      </div>
+                      <div className="flex gap-3 pt-4">
+                        <Button className="flex-1 bg-gradient-to-r from-primary to-secondary hover:opacity-90">
+                          <Icon name="Send" size={18} className="mr-2" />
+                          Отправить заявку
+                        </Button>
+                        <Button variant="outline" onClick={() => setActiveSection('home')}>
+                          Отмена
+                        </Button>
+                      </div>
+                      <div className="mt-6 p-4 rounded-lg bg-muted/50 border border-border/50">
+                        <div className="flex gap-2 mb-2">
+                          <Icon name="Info" size={18} className="text-accent flex-shrink-0 mt-0.5" />
+                          <div className="text-sm">
+                            <p className="font-semibold mb-1">Требования к кандидатам:</p>
+                            <ul className="space-y-1 text-muted-foreground">
+                              <li>• Возраст от 18 лет</li>
+                              <li>• Игровой стаж более 6 месяцев</li>
+                              <li>• Активность минимум 3 часа в день</li>
+                              <li>• Знание правил сервера</li>
+                              <li>• Стрессоустойчивость и адекватность</li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                ) : (
+                  <>
+                    <div className="flex items-center justify-between">
+                      <h2 className="text-2xl font-bold">Горячие темы</h2>
+                      <Button variant="outline" size="sm">
+                        <Icon name="Plus" size={18} className="mr-2" />
+                        Создать тему
+                      </Button>
+                    </div>
 
-                {topics.map((topic, index) => (
+                    {topics.map((topic, index) => (
                   <Card 
                     key={topic.id} 
                     className="border-border/50 bg-card/50 backdrop-blur hover:border-primary/50 transition-all cursor-pointer animate-fade-in"
@@ -296,6 +367,8 @@ const Index = () => {
                     </CardContent>
                   </Card>
                 ))}
+                  </>
+                )}
               </div>
 
               <div className="space-y-4">
